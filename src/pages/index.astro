@@ -2,16 +2,6 @@
 export const prerender = true;
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ToolCard from '../components/ToolCard.astro';
-
-const tools = [
-  {
-    title: 'Steam 卡片生成器',
-    description: '快速生成你的 Steam 资料卡片，支持多主题、自定义背景、统计信息等',
-    href: '/tools/steam-card',
-    tag: '热门',
-  },
-];
 
 const features = [
   {
@@ -32,25 +22,29 @@ const features = [
 ];
 ---
 
-<BaseLayout title="ToolBox - 在线工具集合">
+<BaseLayout 
+  title="ToolBox - 简洁实用的在线工具集合"
+  description="精心打造的在线小工具集合，包含 Steam 卡片生成器等实用工具。无需安装，打开即用，让你的工作更高效。"
+  keywords="在线工具,Steam卡片,工具集合,ToolBox,实用工具,效率工具"
+>
   <!-- Hero Section with Animated Background -->
   <section class="relative overflow-hidden min-h-[90vh] flex items-center">
     <!-- Animated Background Blobs -->
     <div class="absolute inset-0 -z-10">
-      <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-      <div class="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-      <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-blob"></div>
+      <div class="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 dark:bg-yellow-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+      <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 dark:bg-pink-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
     </div>
 
     <!-- Grid Pattern -->
-    <div class="absolute inset-0 -z-10 opacity-[0.02]">
+    <div class="absolute inset-0 -z-10 opacity-[0.03] dark:opacity-[0.05]">
       <div class="absolute inset-0" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 50px 50px;"></div>
     </div>
 
     <div class="max-w-6xl mx-auto px-6 py-20 relative">
       <div class="text-center max-w-4xl mx-auto">
         <!-- Badge -->
-        <div class="animate-fade-in inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 bg-white/80 backdrop-blur-sm text-sm text-gray-600 mb-8 shadow-sm">
+        <div class="animate-fade-in inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-sm text-gray-600 dark:text-gray-300 mb-8 shadow-sm">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -65,18 +59,18 @@ const features = [
         </h1>
 
         <!-- Description -->
-        <p class="animate-fade-in-up animation-delay-200 text-xl sm:text-2xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
+        <p class="animate-fade-in-up animation-delay-200 text-xl sm:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
           精心打造的在线小工具，每一个都简洁高效。<br class="hidden sm:block" />
           无需安装，打开即用。
         </p>
 
         <!-- CTA Buttons -->
         <div class="animate-fade-in-up animation-delay-400 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="#tools" class="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black text-white font-medium hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+          <a href="#features" class="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black dark:bg-white text-white dark:text-black font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
             <span>开始使用</span>
             <svg class="w-4 h-4 group-hover:translate-y-0.5 transition-transform" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8l5 5 5-5"/></svg>
           </a>
-          <a href="https://github.com/seraluce/tool-box" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-gray-200 bg-white font-medium hover:border-gray-300 hover:bg-gray-50 transition-all">
+          <a href="https://github.com/seraluce/tool-box" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 font-medium hover:border-gray-300 dark:hover:border-gray-600 transition-all">
             <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
             <span>源代码</span>
           </a>
@@ -90,58 +84,36 @@ const features = [
   </section>
 
   <!-- Features Section -->
-  <section class="max-w-6xl mx-auto px-6 py-24">
+  <section id="features" class="max-w-6xl mx-auto px-6 py-24">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">为什么选择 ToolBox</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400">简单、高效、实用的工具集合</p>
+    </div>
+    
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
       {features.map((feature, index) => (
-        <div class={`group relative p-8 rounded-2xl border border-gray-100 bg-white hover:border-gray-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in-up`} style={`animation-delay: ${index * 0.1}s`}>
-          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-900 to-gray-700 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+        <div class={`group relative p-8 rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in-up`} style={`animation-delay: ${index * 0.1}s`}>
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
             {feature.icon === 'bolt' && (
-              <svg class="w-6 h-6 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8.5 1.5L3 9h4.5l-1 5.5L13 7H8.5l1-5.5z"/></svg>
+              <svg class="w-6 h-6 text-white dark:text-gray-900" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8.5 1.5L3 9h4.5l-1 5.5L13 7H8.5l1-5.5z"/></svg>
             )}
             {feature.icon === 'design' && (
-              <svg class="w-6 h-6 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M2 6h12M6 6v8"/></svg>
+              <svg class="w-6 h-6 text-white dark:text-gray-900" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M2 6h12M6 6v8"/></svg>
             )}
             {feature.icon === 'refresh' && (
-              <svg class="w-6 h-6 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8a6 6 0 0111.5-2.5M14 8a6 6 0 01-11.5 2.5"/><path d="M14 2v3.5h-3.5M2 14v-3.5h3.5"/></svg>
+              <svg class="w-6 h-6 text-white dark:text-gray-900" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8a6 6 0 0111.5-2.5M14 8a6 6 0 01-11.5 2.5"/><path d="M14 2v3.5h-3.5M2 14v-3.5h3.5"/></svg>
             )}
           </div>
           <h3 class="text-lg font-semibold mb-2">{feature.title}</h3>
-          <p class="text-gray-600 leading-relaxed">{feature.description}</p>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">{feature.description}</p>
         </div>
       ))}
-    </div>
-  </section>
-
-  <!-- Tools Section -->
-  <section id="tools" class="max-w-6xl mx-auto px-6 py-24 border-t border-gray-100">
-    <div class="mb-12">
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">工具</h2>
-      <p class="text-lg text-gray-600">所有可用的在线工具</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {tools.map((tool) => (
-        <ToolCard
-          title={tool.title}
-          description={tool.description}
-          href={tool.href}
-          tag={tool.tag}
-        />
-      ))}
-
-      <!-- Coming Soon Card -->
-      <div class="group relative p-8 border-2 border-dashed border-gray-200 rounded-2xl opacity-60 hover:opacity-80 transition-opacity">
-        <div class="flex flex-col gap-3">
-          <h3 class="text-lg font-medium text-gray-400">更多工具</h3>
-          <p class="text-gray-400 leading-relaxed">正在开发中，敬请期待...</p>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- CTA Section -->
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black -z-10"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black dark:from-gray-800 dark:to-gray-900 -z-10"></div>
     <div class="max-w-6xl mx-auto px-6 py-24 relative">
       <div class="text-center max-w-2xl mx-auto">
         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-white">有工具建议？</h2>
@@ -156,4 +128,3 @@ const features = [
     </div>
   </section>
 </BaseLayout>
-<!-- Trigger redeploy -->
