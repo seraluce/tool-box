@@ -1,10 +1,8 @@
-import { getPlayerSummaries } from '../../../lib/steam/api';
-
 export const onRequestGet: PagesFunction = async (context) => {
   try {
     const steamKey = context.env.STEAM_API_KEY;
     if (!steamKey) {
-      return new Response(JSON.stringify({ error: 'Steam API Key not configured' }), {
+      return new Response(JSON.stringify({ error: 'Steam API Key 未配置' }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' },
       });
@@ -12,24 +10,27 @@ export const onRequestGet: PagesFunction = async (context) => {
 
     const url = new URL(context.request.url);
     const steamid = url.pathname.replace('/api/steam/info/', '');
-    if (!steamid) {
-      return new Response(JSON.stringify({ error: 'SteamID required' }), {
+    
+    if (!steamid || steamid.length !== 17) {
+      return new Response(JSON.stringify({ error: 'SteamID 格式错误' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
-    const { players } = await getPlayerSummaries(steamKey, steamid);
-    if (!players || players.length === 0) {
-      return new Response(JSON.stringify({ error: 'Player not found' }), {
+    const res = await fetch(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${steamKey}&steamids=${steamid}`);
+    const data = await res.json();
+    
+    if (!data.response?.players || data.response.players.length === 0) {
+      return new Response(JSON.stringify({ error: '玩家未找到' }), {
         status: 404,
         headers: { 'Content-Type': 'application/json' },
       });
     }
 
     return new Response(JSON.stringify({
-      avatar: players[0].avatarfull,
-      nickName: players[0].personaname,
+      avatar: data.response.players[0].avatarfull,
+      nickName: data.response.players[0].personaname,
     }), {
       headers: { 'Content-Type': 'application/json' },
     });
