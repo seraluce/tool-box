@@ -1,0 +1,73 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="关于 - ToolBox"
+  description="了解 ToolBox，一个简洁实用的在线工具集合。"
+  keywords="关于 ToolBox,在线工具,工具集合"
+>
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <a href="/" class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white mb-8 transition-colors">
+      <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 4L6 8l4 4"/></svg>
+      返回首页
+    </a>
+
+    <h1 class="text-3xl font-bold tracking-tight mb-2">关于 ToolBox</h1>
+    <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">简洁实用的在线工具集合</p>
+
+    <div class="space-y-12">
+      <section>
+        <h2 class="text-xl font-semibold mb-4">我们的理念</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          ToolBox 是一个精心打造的在线工具集合。我们相信好的工具应该是简洁、高效、无需复杂设置的。每个工具都经过精心设计，专注于解决一个具体问题，拒绝不必要的功能堆砌。
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-4">核心特点</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-xl border border-gray-100 dark:border-gray-800">
+            <h3 class="font-medium mb-2">免费使用</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">所有工具完全免费，无需注册或登录</p>
+          </div>
+          <div class="p-5 rounded-xl border border-gray-100 dark:border-gray-800">
+            <h3 class="font-medium mb-2">隐私优先</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">数据仅存储在本地浏览器，不会上传到服务器</p>
+          </div>
+          <div class="p-5 rounded-xl border border-gray-100 dark:border-gray-800">
+            <h3 class="font-medium mb-2">开源透明</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">代码完全开源，欢迎查看和贡献</p>
+          </div>
+          <div class="p-5 rounded-xl border border-gray-100 dark:border-gray-800">
+            <h3 class="font-medium mb-2">持续更新</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">不断添加新工具，满足更多需求</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-4">技术栈</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+          ToolBox 使用以下技术构建：
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">Astro</span>
+          <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">React</span>
+          <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">TypeScript</span>
+          <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">Tailwind CSS</span>
+          <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">Cloudflare Pages</span>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-4">反馈与建议</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          如果你有任何工具建议或发现问题，欢迎通过 GitHub Issues 反馈。我们也接受 Pull Request，欢迎贡献代码。
+        </p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

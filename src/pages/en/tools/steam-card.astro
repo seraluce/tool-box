@@ -1,0 +1,15 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SteamCardPage from '../../../components/steam-card/SteamCardPage';
+---
+
+<BaseLayout 
+  title="Steam Card Generator - ToolBox"
+  description="Generate your Steam profile card with custom themes, backgrounds, and statistics. Free, open source, no login required."
+  keywords="Steam card,Steam profile card,Steam card generator,game card,Steam tool"
+  lang="en"
+>
+  <SteamCardPage client:load />
+</BaseLayout>

@@ -1,0 +1,96 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Privacy Policy - ToolBox"
+  description="ToolBox Privacy Policy. Learn how we collect, use, and protect your personal information."
+  keywords="privacy policy,data protection,personal information,ToolBox"
+  lang="en"
+>
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <a href="/en" class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white mb-8 transition-colors">
+      <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 4L6 8l4 4"/></svg>
+      Back to home
+    </a>
+
+    <article class="max-w-none">
+      <h1 class="text-3xl font-bold tracking-tight mb-2">Privacy Policy</h1>
+      <p class="text-sm text-gray-500 dark:text-gray-400 mb-8">Last updated: July 5, 2026</p>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">1. Overview</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          ToolBox ("we", "us", or "our") values your privacy. This Privacy Policy explains how we collect, use, store, and protect your information when you use our website and services.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">2. Information Collection</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">Types of information we collect:</p>
+        <ul class="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
+          <li><strong>Usage Data:</strong> Browser type, access time, page views, and other anonymous statistics</li>
+          <li><strong>Preferences:</strong> Theme preferences (dark/light mode), language settings, stored only in your local browser</li>
+          <li><strong>Tool Usage Data:</strong> When using tools like the Steam Card Generator, we process your Steam ID to generate cards, but do not permanently store this data</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">3. Information Usage</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">We use collected information to:</p>
+        <ul class="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
+          <li>Provide and improve our services</li>
+          <li>Optimize user experience and interface design</li>
+          <li>Analyze website usage to improve functionality</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">4. Data Storage</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          Your preferences (such as theme choice) are stored only in your browser's local storage (localStorage) and are not transmitted to our servers. We do not collect or store your personally identifiable information.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">5. Third-Party Services</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">We use the following third-party services:</p>
+        <ul class="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
+          <li><strong>Cloudflare Pages:</strong> For website hosting and CDN acceleration</li>
+          <li><strong>Google Fonts:</strong> For loading the Inter font</li>
+          <li><strong>Steam API:</strong> For fetching public Steam user profiles (only when using the Steam Card Generator)</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">6. Cookie Usage</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          We only use essential local storage to save your preferences. We do not use tracking cookies or advertising cookies.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">7. Data Security</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          We employ industry-standard security measures to protect your data. All data transmission is encrypted via HTTPS.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">8. Policy Updates</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          We may update this Privacy Policy from time to time. Updated policies will be posted on this page with a new effective date.
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">9. Contact Us</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          If you have any questions about this Privacy Policy, please contact us via GitHub Issues.
+        </p>
+      </section>
+    </article>
+  </div>
+</BaseLayout>

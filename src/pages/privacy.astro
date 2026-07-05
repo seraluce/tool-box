@@ -1,0 +1,98 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="隐私政策 - ToolBox"
+  description="ToolBox 隐私政策，了解我们如何收集、使用和保护您的个人信息。"
+  keywords="隐私政策,数据保护,个人信息,ToolBox"
+  lang="zh"
+>
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <a href="/" class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-black dark:hover:text-white mb-8 transition-colors">
+      <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 4L6 8l4 4"/></svg>
+      返回首页
+    </a>
+
+    <article class="prose prose-gray dark:prose-invert max-w-none">
+      <h1 class="text-3xl font-bold tracking-tight mb-2">隐私政策</h1>
+      <p class="text-sm text-gray-500 mb-8">最后更新日期：2026 年 7 月 5 日</p>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">1. 概述</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+          ToolBox（以下简称"我们"）重视您的隐私保护。本隐私政策说明了我们如何收集、使用、存储和保护您在使用我们网站和服务时产生的信息。
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">2. 信息收集</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">我们收集的信息类型包括：</p>
+        <ul class="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
+          <li><strong>使用数据：</strong>浏览器类型、访问时间、页面浏览量等匿名统计数据</li>
+          <li><strong>偏好设置：</strong>主题偏好（深色/浅色模式）、语言设置等，仅存储在您的本地浏览器中</li>
+          <li><strong>工具使用数据：</strong>当您使用 Steam 卡片生成器等工具时，我们会处理您输入的 Steam ID 以生成卡片，但不会永久存储这些数据</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">3. 信息使用</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">我们使用收集的信息用于：</p>
+        <ul class="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
+          <li>提供和改进我们的服务</li>
+          <li>优化用户体验和界面设计</li>
+          <li>分析网站使用情况以改进功能</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">4. 数据存储</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+          您的偏好设置（如主题选择）仅存储在您的浏览器本地存储（localStorage）中，不会传输到我们的服务器。我们不会收集或存储您的个人身份信息。
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">5. 第三方服务</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+          我们使用以下第三方服务：
+        </p>
+        <ul class="list-disc pl-6 text-gray-600 dark:text-gray-400 space-y-2">
+          <li><strong>Cloudflare Pages：</strong>用于网站托管和 CDN 加速</li>
+          <li><strong>Google Fonts：</strong>用于加载 Inter 字体</li>
+          <li><strong>Steam API：</strong>用于获取 Steam 用户公开资料（仅当您使用 Steam 卡片生成器时）</li>
+        </ul>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">6. Cookie 使用</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+          我们仅使用必要的本地存储来保存您的偏好设置。我们不会使用跟踪 Cookie 或广告 Cookie。
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">7. 数据安全</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+          我们采用行业标准的安全措施来保护您的数据。所有数据传输均通过 HTTPS 加密进行。
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">8. 隐私政策更新</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+          我们可能会不时更新本隐私政策。更新后的政策将在本页面上发布，并标注新的生效日期。
+        </p>
+      </section>
+
+      <section class="mb-8">
+        <h2 class="text-xl font-semibold mb-3">9. 联系我们</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          如果您对本隐私政策有任何疑问，请通过 GitHub Issues 联系我们。
+        </p>
+      </section>
+    </article>
+  </div>
+</BaseLayout>

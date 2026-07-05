@@ -1,0 +1,77 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getTranslations } from '../../i18n';
+
+const t = getTranslations('en');
+---
+
+<BaseLayout 
+  title="About - ToolBox"
+  description="Learn about ToolBox, a curated collection of simple and practical online tools."
+  keywords="about ToolBox,online tools,tool collection"
+  lang="en"
+>
+  <div class="max-w-4xl mx-auto px-6 py-16">
+    <a href="/en" class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white mb-8 transition-colors">
+      <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 4L6 8l4 4"/></svg>
+      Back to home
+    </a>
+
+    <h1 class="text-3xl font-bold tracking-tight mb-2">About ToolBox</h1>
+    <p class="text-lg text-gray-600 dark:text-gray-400 mb-12">A curated collection of simple and practical online tools</p>
+
+    <div class="space-y-12">
+      <section>
+        <h2 class="text-xl font-semibold mb-4">Our Philosophy</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          ToolBox is a carefully crafted collection of online tools. We believe great tools should be simple, efficient, and require no complex setup. Each tool is thoughtfully designed to solve a specific problem, without unnecessary feature bloat.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-4">Core Features</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="p-5 rounded-xl border border-gray-100 dark:border-gray-800">
+            <h3 class="font-medium mb-2">Free to Use</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">All tools are completely free, no registration or login required</p>
+          </div>
+          <div class="p-5 rounded-xl border border-gray-100 dark:border-gray-800">
+            <h3 class="font-medium mb-2">Privacy First</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Data is stored only in your local browser, never uploaded to servers</p>
+          </div>
+          <div class="p-5 rounded-xl border border-gray-100 dark:border-gray-800">
+            <h3 class="font-medium mb-2">Open Source</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">Code is fully open source, feel free to view and contribute</p>
+          </div>
+          <div class="p-5 rounded-xl border border-gray-100 dark:border-gray-800">
+            <h3 class="font-medium mb-2">Continuously Updated</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400">New tools added regularly to meet more needs</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-4">Tech Stack</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+          ToolBox is built with the following technologies:
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">Astro</span>
+          <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">React</span>
+          <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">TypeScript</span>
+          <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">Tailwind CSS</span>
+          <span class="px-3 py-1.5 rounded-lg bg-gray-100 dark:bg-gray-800 text-sm text-gray-700 dark:text-gray-300">Cloudflare Pages</span>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-semibold mb-4">Feedback & Suggestions</h2>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+          If you have any tool suggestions or find issues, feel free to submit feedback via GitHub Issues. We also accept Pull Requests — contributions are welcome.
+        </p>
+      </section>
+    </div>
+  </div>
+</BaseLayout>

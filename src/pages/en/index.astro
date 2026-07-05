@@ -1,10 +1,10 @@
 ---
 export const prerender = true;
 
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { getTranslations } from '../i18n';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getTranslations } from '../../i18n';
 
-const t = getTranslations('zh');
+const t = getTranslations('en');
 
 const features = [
   { title: t.home.feature1Title, description: t.home.feature1Desc, icon: 'bolt' },
@@ -14,10 +14,10 @@ const features = [
 ---
 
 <BaseLayout 
-  title="ToolBox - 简洁实用的在线工具集合"
-  description="精心打造的在线小工具集合，包含 Steam 卡片生成器等实用工具。无需安装，打开即用，让你的工作更高效。"
-  keywords="在线工具,Steam卡片,工具集合,ToolBox,实用工具,效率工具"
-  lang="zh"
+  title="ToolBox - Simple & Practical Online Tools"
+  description="A curated collection of online tools including Steam Card Generator. No installation needed, open and use."
+  keywords="online tools,Steam card,tool collection,ToolBox,utility tools"
+  lang="en"
 >
   <!-- Hero Section -->
   <section class="relative overflow-hidden min-h-[90vh] flex items-center">
@@ -51,7 +51,7 @@ const features = [
           {t.home.desc2}
         </p>
 
-        <div class="animate-fade-in-up animation-delay-400 flex items-center justify-center">
+        <div class="animate-fade-in-up animation-delay-400 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="#tools" class="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black dark:bg-white text-white dark:text-black font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
             <span>{t.home.cta}</span>
             <svg class="w-4 h-4 group-hover:translate-y-0.5 transition-transform" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8l5 5 5-5"/></svg>
@@ -95,27 +95,26 @@ const features = [
   <!-- Tools Section -->
   <section id="tools" class="max-w-6xl mx-auto px-6 py-24 border-t border-gray-100 dark:border-gray-800">
     <div class="mb-12">
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">工具</h2>
-      <p class="text-lg text-gray-600 dark:text-gray-400">所有可用的在线工具</p>
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">Tools</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400">All available online tools</p>
     </div>
-
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <a href="/tools/steam-card" class="group relative p-8 rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-gray-200 dark:hover:border-gray-700 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
         <div class="flex items-start justify-between mb-3">
-          <h3 class="text-lg font-semibold">Steam 卡片生成器</h3>
-          <span class="px-2 py-0.5 text-[11px] font-medium rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">热门</span>
+          <h3 class="text-lg font-semibold">Steam Card Generator</h3>
+          <span class="px-2 py-0.5 text-[11px] font-medium rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">Hot</span>
         </div>
-        <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">快速生成你的 Steam 资料卡片，支持多主题、自定义背景、统计信息等</p>
+        <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">Generate your Steam profile card with custom themes, backgrounds, and statistics.</p>
         <div class="mt-4 flex items-center gap-1 text-sm text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors">
-          <span>打开</span>
+          <span>Open</span>
           <svg class="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H5M12 4v7"/></svg>
         </div>
       </a>
 
       <div class="group relative p-8 border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-2xl opacity-60 hover:opacity-80 transition-opacity">
         <div class="flex flex-col gap-3">
-          <h3 class="text-lg font-medium text-gray-400">更多工具</h3>
-          <p class="text-gray-400 leading-relaxed text-sm">正在开发中，敬请期待...</p>
+          <h3 class="text-lg font-medium text-gray-400">More Tools</h3>
+          <p class="text-gray-400 leading-relaxed text-sm">Coming soon, stay tuned...</p>
         </div>
       </div>
     </div>

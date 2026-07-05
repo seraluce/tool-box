@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { getTranslations, type Lang } from '../i18n';
 
 interface Props {
   title: string;
@@ -7,6 +8,7 @@ interface Props {
   keywords?: string;
   ogImage?: string;
   canonical?: string;
+  lang?: Lang;
 }
 
 const { 
@@ -14,22 +16,25 @@ const {
   description = '简洁实用的在线工具集合，提供 Steam 卡片生成器等实用工具',
   keywords = '在线工具,Steam卡片,工具集合,ToolBox',
   ogImage = '/og-image.png',
-  canonical = 'https://toolbox.nelv.cn'
+  lang = 'zh',
 } = Astro.props;
 
+const t = getTranslations(lang);
 const siteName = 'ToolBox';
-const locale = 'zh_CN';
+const locale = lang === 'zh' ? 'zh_CN' : 'en_US';
+const htmlLang = lang === 'zh' ? 'zh-CN' : 'en';
+const canonical = Astro.props.canonical ?? 'https://toolbox.nelv.cn';
+const langPrefix = lang === 'en' ? '/en' : '';
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang={htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
     
-    <!-- SEO Meta -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
@@ -37,7 +42,6 @@ const locale = 'zh_CN';
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
     
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content={locale} />
     <meta property="og:site_name" content={siteName} />
@@ -46,22 +50,22 @@ const locale = 'zh_CN';
     <meta property="og:image" content={ogImage} />
     <meta property="og:url" content={canonical} />
     
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+
+    <link rel="alternate" hreflang="zh-CN" href="https://toolbox.nelv.cn{Astro.url.pathname}" />
+    <link rel="alternate" hreflang="en" href="https://toolbox.nelv.cn/en{Astro.url.pathname}" />
+    <link rel="alternate" hreflang="x-default" href="https://toolbox.nelv.cn{Astro.url.pathname}" />
     
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/favicon.svg" />
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
-    <!-- Dark mode script -->
     <script is:inline>
       (function() {
         const theme = localStorage.getItem('theme');
@@ -73,21 +77,37 @@ const locale = 'zh_CN';
   </head>
   <body class="bg-white dark:bg-[#0a0a0a] text-black dark:text-white transition-colors duration-200">
     <div class="min-h-screen flex flex-col">
+      <!-- Navigation -->
       <header class="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md">
         <nav class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <a href="/" class="flex items-center gap-2 text-sm font-semibold tracking-tight">
+          <a href="{langPrefix}/" class="flex items-center gap-2 text-sm font-semibold tracking-tight">
             <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="32" height="32" rx="8" fill="currentColor"/>
               <path d="M10 10h12v3h-4.5v9h-3v-9H10v-3z" fill="#fff"/>
             </svg>
             ToolBox
           </a>
-          <div class="flex items-center gap-4">
-            <a href="/#tools" class="text-[13px] text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">工具</a>
+          <div class="flex items-center gap-1">
+            <a href="{langPrefix}/#tools" class="px-3 py-1.5 rounded-lg text-[13px] text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+              {t.nav.tools}
+            </a>
+            <a href="{langPrefix}/about" class="px-3 py-1.5 rounded-lg text-[13px] text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+              {t.nav.about}
+            </a>
+            <div class="w-px h-4 bg-gray-200 dark:bg-gray-700 mx-1"></div>
+            <!-- Language Switcher -->
+            <button 
+              id="lang-toggle"
+              class="px-2.5 py-1.5 rounded-lg text-[13px] text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors font-medium"
+              aria-label="Switch language"
+            >
+              {lang === 'zh' ? 'EN' : '中'}
+            </button>
+            <!-- Theme Toggle -->
             <button 
               id="theme-toggle"
               class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-              aria-label="切换主题"
+              aria-label={t.theme.toggle}
             >
               <svg class="w-4 h-4 sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
@@ -104,11 +124,51 @@ const locale = 'zh_CN';
         <slot />
       </main>
 
-      <footer class="border-t border-gray-200 dark:border-gray-800">
-        <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p class="text-[13px] text-gray-500 dark:text-gray-400">
-            &copy; {new Date().getFullYear()} ToolBox
-          </p>
+      <!-- Footer -->
+      <footer class="border-t border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/30">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
+            <!-- Site Info -->
+            <div class="sm:col-span-1">
+              <a href="{langPrefix}/" class="flex items-center gap-2 text-sm font-semibold tracking-tight mb-3">
+                <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="32" height="32" rx="8" fill="currentColor"/>
+                  <path d="M10 10h12v3h-4.5v9h-3v-9H10v-3z" fill="#fff"/>
+                </svg>
+                ToolBox
+              </a>
+              <p class="text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed">
+                {t.footer.description}
+              </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+              <h4 class="text-[13px] font-semibold mb-3 text-gray-900 dark:text-gray-200">{t.footer.quickLinks}</h4>
+              <ul class="space-y-2">
+                <li><a href="{langPrefix}/#tools" class="text-[13px] text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">{t.nav.tools}</a></li>
+                <li><a href="{langPrefix}/tools/steam-card" class="text-[13px] text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">Steam Card</a></li>
+              </ul>
+            </div>
+
+            <!-- Legal -->
+            <div>
+              <h4 class="text-[13px] font-semibold mb-3 text-gray-900 dark:text-gray-200">{t.footer.legal}</h4>
+              <ul class="space-y-2">
+                <li><a href="{langPrefix}/privacy" class="text-[13px] text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">{t.footer.privacy}</a></li>
+                <li><a href="{langPrefix}/terms" class="text-[13px] text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">{t.footer.terms}</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-6 border-t border-gray-200 dark:border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p class="text-[12px] text-gray-400 dark:text-gray-500">
+              &copy; {new Date().getFullYear()} ToolBox
+            </p>
+            <p class="text-[12px] text-gray-400 dark:text-gray-500">
+              {t.footer.copyright}
+            </p>
+          </div>
         </div>
       </footer>
     </div>
@@ -137,6 +197,32 @@ const locale = 'zh_CN';
           const isDark = html.classList.contains('dark');
           localStorage.setItem('theme', isDark ? 'dark' : 'light');
           updateIcons();
+        });
+
+        // Language switcher
+        const langBtn = document.getElementById('lang-toggle');
+        langBtn.addEventListener('click', function() {
+          const currentLang = localStorage.getItem('lang') || 'zh';
+          const newLang = currentLang === 'zh' ? 'en' : 'zh';
+          localStorage.setItem('lang', newLang);
+          const path = window.location.pathname;
+          if (newLang === 'en') {
+            if (path.startsWith('/en/')) {
+              window.location.href = path;
+            } else if (path === '/en') {
+              window.location.href = '/en';
+            } else {
+              window.location.href = '/en' + path;
+            }
+          } else {
+            if (path.startsWith('/en/')) {
+              window.location.href = path.replace('/en', '');
+            } else if (path === '/en') {
+              window.location.href = '/';
+            } else {
+              window.location.href = path;
+            }
+          }
         });
       })();
     </script>
