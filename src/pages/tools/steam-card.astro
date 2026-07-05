@@ -1,38 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
-const steamCardUrl = 'https://card.yuy1n.io';
+import SteamCardPage from '../../components/steam-card/SteamCardPage';
 ---
 
 <BaseLayout title="Steam 卡片生成器 - ToolBox">
-  <div class="max-w-7xl mx-auto px-6 py-8">
-    <div class="mb-8">
-      <div class="flex items-center gap-3 mb-4">
-        <a href="/" class="text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors">
-          ← 返回
-        </a>
-      </div>
-      <h1 class="text-3xl font-bold tracking-tight mb-3">
-        Steam 卡片生成器
-      </h1>
-      <p class="text-[var(--muted-foreground)] leading-relaxed">
-        快速生成你的 Steam 资料卡片，支持自定义样式和预设配置。登录你的 Steam 账号，选择喜欢的样式，一键生成专属卡片。
-      </p>
-    </div>
-
-    <div class="border border-[var(--border)] rounded-lg overflow-hidden bg-white" style="height: calc(100vh - 280px);">
-      <iframe
-        src={steamCardUrl}
-        class="w-full h-full border-0"
-        title="Steam 卡片生成器"
-        allow="clipboard-read; clipboard-write"
-      ></iframe>
-    </div>
-
-    <div class="mt-6 text-sm text-[var(--muted-foreground)]">
-      <p>
-        项目开源地址：<a href="https://github.com/yuyinws/steam-card" target="_blank" rel="noopener" class="text-[var(--accent)] hover:underline">github.com/yuyinws/steam-card</a>
-      </p>
-    </div>
-  </div>
+  <SteamCardPage client:load />
 </BaseLayout>
