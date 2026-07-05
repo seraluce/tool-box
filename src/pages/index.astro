@@ -31,86 +31,93 @@ const features = [
 ---
 
 <BaseLayout title="ToolBox - 在线工具集合">
-  <!-- Hero Section -->
-  <section class="relative overflow-hidden">
-    <!-- Grid Background -->
+  <!-- Hero Section with Animated Background -->
+  <section class="relative overflow-hidden min-h-[90vh] flex items-center">
+    <!-- Animated Background Blobs -->
     <div class="absolute inset-0 -z-10">
-      <div class="absolute inset-0" style="background-image: linear-gradient(var(--color-border) 1px, transparent 1px), linear-gradient(90deg, var(--color-border) 1px, transparent 1px); background-size: 64px 64px; opacity: 0.4;"></div>
-      <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 50% at 50% 0%, transparent 40%, var(--color-background) 100%);"></div>
+      <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+      <div class="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+      <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
     </div>
 
-    <div class="max-w-6xl mx-auto px-6 pt-24 pb-20 sm:pt-32 sm:pb-28">
-      <div class="text-center max-w-3xl mx-auto">
+    <!-- Grid Pattern -->
+    <div class="absolute inset-0 -z-10 opacity-[0.02]">
+      <div class="absolute inset-0" style="background-image: linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px); background-size: 50px 50px;"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-6 py-20 relative">
+      <div class="text-center max-w-4xl mx-auto">
         <!-- Badge -->
-        <div class="animate-fade-in inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[var(--color-border)] bg-white text-[13px] text-[var(--color-muted-foreground)] mb-8">
-          <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+        <div class="animate-fade-in inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 bg-white/80 backdrop-blur-sm text-sm text-gray-600 mb-8 shadow-sm">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
           持续更新中
         </div>
 
         <!-- Title -->
-        <h1 class="animate-fade-in-delay-1 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
-          简洁实用的
-          <br />
-          <span class="bg-gradient-to-r from-[var(--color-foreground)] via-[var(--color-muted-foreground)] to-[var(--color-foreground)] bg-clip-text text-transparent">
-            在线工具集合
-          </span>
+        <h1 class="animate-fade-in-up text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-8">
+          <span class="block">简洁实用的</span>
+          <span class="block gradient-text animate-gradient mt-2">在线工具集合</span>
         </h1>
 
         <!-- Description -->
-        <p class="animate-fade-in-delay-2 text-lg sm:text-xl text-[var(--color-muted-foreground)] max-w-xl mx-auto mb-10 leading-relaxed">
+        <p class="animate-fade-in-up animation-delay-200 text-xl sm:text-2xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
           精心打造的在线小工具，每一个都简洁高效。<br class="hidden sm:block" />
           无需安装，打开即用。
         </p>
 
-        <!-- CTA -->
-        <div class="animate-fade-in-delay-3 flex items-center justify-center gap-3">
-          <a href="#tools" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[var(--color-foreground)] text-white text-sm font-medium hover:opacity-90 transition-opacity">
-            开始使用
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8l5 5 5-5"/></svg>
+        <!-- CTA Buttons -->
+        <div class="animate-fade-in-up animation-delay-400 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#tools" class="group relative inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-black text-white font-medium hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+            <span>开始使用</span>
+            <svg class="w-4 h-4 group-hover:translate-y-0.5 transition-transform" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8l5 5 5-5"/></svg>
           </a>
-          <a href="https://github.com/seraluce/tool-box" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[var(--color-border)] text-sm font-medium hover:bg-[var(--color-muted)] transition-colors">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            源代码
+          <a href="https://github.com/seraluce/tool-box" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-gray-200 bg-white font-medium hover:border-gray-300 hover:bg-gray-50 transition-all">
+            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            <span>源代码</span>
           </a>
         </div>
+
+        <!-- Floating Elements -->
+        <div class="absolute top-1/4 left-10 w-20 h-20 bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg opacity-20 animate-float hidden lg:block"></div>
+        <div class="absolute bottom-1/4 right-10 w-16 h-16 bg-gradient-to-br from-pink-400 to-red-500 rounded-full opacity-20 animate-float animation-delay-200 hidden lg:block"></div>
       </div>
     </div>
-
-    <!-- Bottom fade -->
-    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[var(--color-background)] to-transparent"></div>
   </section>
 
   <!-- Features Section -->
-  <section class="max-w-6xl mx-auto px-6 py-16 border-t border-[var(--color-border)]">
+  <section class="max-w-6xl mx-auto px-6 py-24">
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-      {features.map((feature) => (
-        <div class="flex flex-col gap-3">
-          <div class="w-9 h-9 rounded-lg border border-[var(--color-border)] flex items-center justify-center">
+      {features.map((feature, index) => (
+        <div class={`group relative p-8 rounded-2xl border border-gray-100 bg-white hover:border-gray-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-fade-in-up`} style={`animation-delay: ${index * 0.1}s`}>
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-900 to-gray-700 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
             {feature.icon === 'bolt' && (
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8.5 1.5L3 9h4.5l-1 5.5L13 7H8.5l1-5.5z"/></svg>
+              <svg class="w-6 h-6 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8.5 1.5L3 9h4.5l-1 5.5L13 7H8.5l1-5.5z"/></svg>
             )}
             {feature.icon === 'design' && (
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M2 6h12M6 6v8"/></svg>
+              <svg class="w-6 h-6 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M2 6h12M6 6v8"/></svg>
             )}
             {feature.icon === 'refresh' && (
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8a6 6 0 0111.5-2.5M14 8a6 6 0 01-11.5 2.5"/><path d="M14 2v3.5h-3.5M2 14v-3.5h3.5"/></svg>
+              <svg class="w-6 h-6 text-white" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8a6 6 0 0111.5-2.5M14 8a6 6 0 01-11.5 2.5"/><path d="M14 2v3.5h-3.5M2 14v-3.5h3.5"/></svg>
             )}
           </div>
-          <h3 class="text-sm font-semibold">{feature.title}</h3>
-          <p class="text-sm text-[var(--color-muted-foreground)] leading-relaxed">{feature.description}</p>
+          <h3 class="text-lg font-semibold mb-2">{feature.title}</h3>
+          <p class="text-gray-600 leading-relaxed">{feature.description}</p>
         </div>
       ))}
     </div>
   </section>
 
   <!-- Tools Section -->
-  <section id="tools" class="max-w-6xl mx-auto px-6 py-16 border-t border-[var(--color-border)]">
-    <div class="mb-10">
-      <h2 class="text-2xl font-bold tracking-tight mb-2">工具</h2>
-      <p class="text-sm text-[var(--color-muted-foreground)]">所有可用的在线工具</p>
+  <section id="tools" class="max-w-6xl mx-auto px-6 py-24 border-t border-gray-100">
+    <div class="mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-3">工具</h2>
+      <p class="text-lg text-gray-600">所有可用的在线工具</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {tools.map((tool) => (
         <ToolCard
           title={tool.title}
@@ -121,35 +128,29 @@ const features = [
       ))}
 
       <!-- Coming Soon Card -->
-      <div class="group p-6 border border-dashed border-[var(--color-border)] rounded-lg opacity-60">
-        <div class="flex items-start justify-between">
-          <div class="flex-1">
-            <h3 class="text-base font-medium mb-2 text-[var(--color-muted-foreground)]">
-              更多工具
-            </h3>
-            <p class="text-sm text-[var(--color-muted-foreground)] leading-relaxed">
-              正在开发中，敬请期待...
-            </p>
-          </div>
-          <span class="text-sm text-[var(--color-muted-foreground)]">
-            ...
-          </span>
+      <div class="group relative p-8 border-2 border-dashed border-gray-200 rounded-2xl opacity-60 hover:opacity-80 transition-opacity">
+        <div class="flex flex-col gap-3">
+          <h3 class="text-lg font-medium text-gray-400">更多工具</h3>
+          <p class="text-gray-400 leading-relaxed">正在开发中，敬请期待...</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="max-w-6xl mx-auto px-6 py-20 border-t border-[var(--color-border)]">
-    <div class="text-center max-w-lg mx-auto">
-      <h2 class="text-2xl font-bold tracking-tight mb-3">有工具建议？</h2>
-      <p class="text-sm text-[var(--color-muted-foreground)] mb-6 leading-relaxed">
-        如果你有任何工具需求或建议，欢迎在 GitHub 上提交 Issue 或 Pull Request
-      </p>
-      <a href="https://github.com/seraluce/tool-box/issues" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[var(--color-border)] text-sm font-medium hover:bg-[var(--color-muted)] transition-colors">
-        提交建议
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H5M12 4v7"/></svg>
-      </a>
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black -z-10"></div>
+    <div class="max-w-6xl mx-auto px-6 py-24 relative">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-white">有工具建议？</h2>
+        <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+          如果你有任何工具需求或建议，欢迎在 GitHub 上提交 Issue 或 Pull Request
+        </p>
+        <a href="https://github.com/seraluce/tool-box/issues" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white text-black font-medium hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+          提交建议
+          <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12L12 4M12 4H5M12 4v7"/></svg>
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>

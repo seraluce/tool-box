@@ -9,21 +9,26 @@ interface Props {
 const { title, description, href, tag } = Astro.props;
 ---
 
-<a href={href} class="group relative block p-6 border border-[var(--color-border)] rounded-lg hover:border-[var(--color-foreground)]/30 hover:shadow-sm transition-all duration-200">
-  <div class="flex items-start justify-between mb-3">
-    <h3 class="text-[15px] font-semibold group-hover:text-[var(--color-accent)] transition-colors">
-      {title}
-    </h3>
-    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" class="text-[var(--color-muted-foreground)] group-hover:text-[var(--color-foreground)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all">
-      <path d="M4 12L12 4M12 4H5M12 4v7"/>
-    </svg>
+<a href={href} class="group relative block p-8 border border-gray-100 rounded-2xl bg-white hover:border-gray-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+  <!-- Background gradient on hover -->
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+  
+  <div class="relative">
+    <div class="flex items-start justify-between mb-4">
+      <h3 class="text-xl font-semibold group-hover:text-gray-900 transition-colors">
+        {title}
+      </h3>
+      <svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" class="text-gray-400 group-hover:text-gray-900 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all">
+        <path d="M4 12L12 4M12 4H5M12 4v7"/>
+      </svg>
+    </div>
+    <p class="text-gray-600 leading-relaxed">
+      {description}
+    </p>
+    {tag && (
+      <span class="absolute top-0 right-0 px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+        {tag}
+      </span>
+    )}
   </div>
-  <p class="text-sm text-[var(--color-muted-foreground)] leading-relaxed">
-    {description}
-  </p>
-  {tag && (
-    <span class="absolute top-3 right-3 px-1.5 py-0.5 text-[10px] font-medium rounded bg-[var(--color-accent)] text-white">
-      {tag}
-    </span>
-  )}
 </a>
