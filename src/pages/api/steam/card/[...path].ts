@@ -13,6 +13,8 @@ import { generateSvg, generateError } from '../../../../lib/steam/render';
 import { t } from '../../../../lib/steam/i18n';
 import type { Count, Statistic } from '../../../../lib/steam/types';
 
+export const prerender = false;
+
 const TRANSPARENT = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
 
 export const GET: APIRoute = async ({ url }) => {

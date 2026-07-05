@@ -1,6 +1,8 @@
 import type { APIRoute } from 'astro';
 import { getPlayerSummaries } from '../../../../lib/steam/api';
 
+export const prerender = false;
+
 export const GET: APIRoute = async ({ url }) => {
   try {
     const steamKey = import.meta.env.STEAM_API_KEY;
