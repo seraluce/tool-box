@@ -63,7 +63,10 @@ export default function SteamCardPage() {
       settings.push(...cfg.statistics);
     }
     
-    const url = `/api/steam/card/${steamId}/${settings.join(',')}`;
+    const settingsStr = settings.join(',');
+    const url = settingsStr
+      ? `/api/steam/card/${steamId}?s=${encodeURIComponent(settingsStr)}`
+      : `/api/steam/card/${steamId}`;
     setCardUrl(url);
     setLoading(true);
   }

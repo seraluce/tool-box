@@ -24,9 +24,8 @@ export const onRequestGet: PagesFunction = async (context) => {
     }
 
     const url = new URL(context.request.url);
-    const pathParts = url.pathname.replace('/api/steam/card/', '').split('/');
-    const steamid = pathParts[0];
-    const settings = pathParts[1] || '';
+    const steamid = context.params.id || '';
+    const settings = url.searchParams.get('s') || '';
 
     if (!steamid || /[A-Z]/i.test(steamid)) {
       return new Response(generateError('Invalid SteamID'), {
