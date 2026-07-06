@@ -80,7 +80,7 @@ const langPrefix = lang === 'en' ? '/en' : '';
       <!-- Navigation -->
       <header class="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-md">
         <nav class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <a href="{langPrefix}/" class="flex items-center gap-2 text-sm font-semibold tracking-tight">
+          <a href={`${langPrefix}/`} class="flex items-center gap-2 text-sm font-semibold tracking-tight">
             <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect width="32" height="32" rx="8" fill="currentColor"/>
               <path d="M10 10h12v3h-4.5v9h-3v-9H10v-3z" fill="#fff"/>
@@ -88,10 +88,10 @@ const langPrefix = lang === 'en' ? '/en' : '';
             ToolBox
           </a>
           <div class="flex items-center gap-1">
-            <a href="{langPrefix}/#tools" class="px-3 py-1.5 rounded-lg text-[13px] text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            <a href={`${langPrefix}/#tools`} class="px-3 py-1.5 rounded-lg text-[13px] text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
               {t.nav.tools}
             </a>
-            <a href="{langPrefix}/about" class="px-3 py-1.5 rounded-lg text-[13px] text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            <a href={`${langPrefix}/about`} class="px-3 py-1.5 rounded-lg text-[13px] text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
               {t.nav.about}
             </a>
             <div class="w-px h-4 bg-gray-200 dark:bg-gray-700 mx-1"></div>
@@ -130,7 +130,7 @@ const langPrefix = lang === 'en' ? '/en' : '';
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-8">
             <!-- Site Info -->
             <div class="sm:col-span-1">
-              <a href="{langPrefix}/" class="flex items-center gap-2 text-sm font-semibold tracking-tight mb-3">
+              <a href={`${langPrefix}/`} class="flex items-center gap-2 text-sm font-semibold tracking-tight mb-3">
                 <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="32" height="32" rx="8" fill="currentColor"/>
                   <path d="M10 10h12v3h-4.5v9h-3v-9H10v-3z" fill="#fff"/>
@@ -146,8 +146,8 @@ const langPrefix = lang === 'en' ? '/en' : '';
             <div>
               <h4 class="text-[13px] font-semibold mb-3 text-gray-900 dark:text-gray-200">{t.footer.quickLinks}</h4>
               <ul class="space-y-2">
-                <li><a href="{langPrefix}/#tools" class="text-[13px] text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">{t.nav.tools}</a></li>
-                <li><a href="{langPrefix}/tools/steam-card" class="text-[13px] text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">Steam Card</a></li>
+                <li><a href={`${langPrefix}/#tools`} class="text-[13px] text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">{t.nav.tools}</a></li>
+                <li><a href={`${langPrefix}/tools/steam-card`} class="text-[13px] text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">Steam Card</a></li>
               </ul>
             </div>
 
@@ -155,8 +155,8 @@ const langPrefix = lang === 'en' ? '/en' : '';
             <div>
               <h4 class="text-[13px] font-semibold mb-3 text-gray-900 dark:text-gray-200">{t.footer.legal}</h4>
               <ul class="space-y-2">
-                <li><a href="{langPrefix}/privacy" class="text-[13px] text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">{t.footer.privacy}</a></li>
-                <li><a href="{langPrefix}/terms" class="text-[13px] text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">{t.footer.terms}</a></li>
+                <li><a href={`${langPrefix}/privacy`} class="text-[13px] text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">{t.footer.privacy}</a></li>
+                <li><a href={`${langPrefix}/terms`} class="text-[13px] text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">{t.footer.terms}</a></li>
               </ul>
             </div>
           </div>
