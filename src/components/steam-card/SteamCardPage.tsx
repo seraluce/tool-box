@@ -159,7 +159,7 @@ export default function SteamCardPage() {
             <select
               value={currentIndex}
               onChange={(e) => handleSwitchAccount(Number(e.target.value))}
-              className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 py-1.5 text-sm border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white"
             >
               {accounts.map((acc, i) => (
                 <option key={acc.steamId} value={i}>{acc.nickName}</option>
@@ -179,8 +179,8 @@ export default function SteamCardPage() {
           <div className="h-full flex items-center justify-center p-6">
             <div className="w-full max-w-sm space-y-5">
               <div className="text-center mb-8">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <div className="w-16 h-16 rounded-2xl bg-black dark:bg-white flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white dark:text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <path d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
                   </svg>
                 </div>
@@ -191,7 +191,7 @@ export default function SteamCardPage() {
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <label className="text-sm font-medium">SteamID64</label>
-                  <button onClick={() => setShowIdHint(!showIdHint)} className="text-xs text-blue-500 hover:text-blue-600 transition-colors">
+                  <button onClick={() => setShowIdHint(!showIdHint)} className="text-xs text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white underline underline-offset-2 transition-colors">
                     如何获取？
                   </button>
                 </div>
@@ -200,20 +200,20 @@ export default function SteamCardPage() {
                   value={steamIdInput}
                   onChange={(e) => setSteamIdInput(e.target.value)}
                   placeholder="76561198340841543"
-                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-transparent transition-all"
                   maxLength={17}
                   onKeyDown={(e) => e.key === 'Enter' && handleAddAccount()}
                 />
 
                 {showIdHint && (
-                  <div className="mt-3 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-xl text-xs text-blue-700 dark:text-blue-300 space-y-2 animate-fade-in">
-                    <p className="font-medium text-blue-800 dark:text-blue-200">获取 SteamID64 的方法：</p>
+                  <div className="mt-3 p-4 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-xs text-gray-600 dark:text-gray-400 space-y-2 animate-fade-in">
+                    <p className="font-medium text-gray-900 dark:text-gray-200">获取 SteamID64 的方法：</p>
                     <ol className="list-decimal pl-4 space-y-1.5">
-                      <li>打开 <span className="font-mono bg-blue-100 dark:bg-blue-800 px-1 rounded">steamid.io</span> 或 <span className="font-mono bg-blue-100 dark:bg-blue-800 px-1 rounded">steamidfinder.com</span></li>
+                      <li>打开 <span className="font-mono bg-gray-200 dark:bg-gray-700 px-1 rounded">steamid.io</span> 或 <span className="font-mono bg-gray-200 dark:bg-gray-700 px-1 rounded">steamidfinder.com</span></li>
                       <li>输入你的 Steam 个人资料链接或自定义 URL</li>
-                      <li>复制 <span className="font-mono bg-blue-100 dark:bg-blue-800 px-1 rounded">steamID64</span> 格式的 ID</li>
+                      <li>复制 <span className="font-mono bg-gray-200 dark:bg-gray-700 px-1 rounded">steamID64</span> 格式的 ID</li>
                     </ol>
-                    <p className="text-blue-600 dark:text-blue-400">格式为 17 位数字，以 7656 开头</p>
+                    <p className="text-gray-500 dark:text-gray-500">格式为 17 位数字，以 7656 开头</p>
                   </div>
                 )}
               </div>
@@ -221,7 +221,7 @@ export default function SteamCardPage() {
               <button
                 onClick={handleAddAccount}
                 disabled={steamIdInput.length !== 17}
-                className="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg shadow-blue-500/20 disabled:opacity-40 disabled:cursor-not-allowed disabled:shadow-none"
+                className="w-full py-3 bg-black dark:bg-white text-white dark:text-black rounded-xl font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-sm disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 添加账号
               </button>
@@ -242,7 +242,7 @@ export default function SteamCardPage() {
                       onClick={() => updateConfig('theme', theme.id)}
                       className={`px-3 py-2 text-xs rounded-lg border transition-all ${
                         config.theme === theme.id
-                          ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 ring-1 ring-blue-500'
+                          ? 'border-black dark:border-white bg-gray-50 dark:bg-gray-900 text-black dark:text-white ring-1 ring-black dark:ring-white'
                           : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
                       }`}
                     >
@@ -263,7 +263,7 @@ export default function SteamCardPage() {
                   value={config.textColor}
                   onChange={(e) => updateConfig('textColor', e.target.value)}
                   placeholder="#666666"
-                  className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all"
                 />
               </div>
 
@@ -273,13 +273,13 @@ export default function SteamCardPage() {
                 <div className="flex gap-2 mb-2">
                   <button
                     onClick={() => updateConfig('bgType', 'color')}
-                    className={`flex-1 py-2 text-xs rounded-lg border transition-all ${config.bgType === 'color' ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 ring-1 ring-blue-500' : 'border-gray-200 dark:border-gray-700'}`}
+                    className={`flex-1 py-2 text-xs rounded-lg border transition-all ${config.bgType === 'color' ? 'border-black dark:border-white bg-gray-50 dark:bg-gray-900 text-black dark:text-white ring-1 ring-black dark:ring-white' : 'border-gray-200 dark:border-gray-700'}`}
                   >
                     颜色
                   </button>
                   <button
                     onClick={() => updateConfig('bgType', 'game-cover')}
-                    className={`flex-1 py-2 text-xs rounded-lg border transition-all ${config.bgType === 'game-cover' ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 ring-1 ring-blue-500' : 'border-gray-200 dark:border-gray-700'}`}
+                    className={`flex-1 py-2 text-xs rounded-lg border transition-all ${config.bgType === 'game-cover' ? 'border-black dark:border-white bg-gray-50 dark:bg-gray-900 text-black dark:text-white ring-1 ring-black dark:ring-white' : 'border-gray-200 dark:border-gray-700'}`}
                   >
                     游戏封面
                   </button>
@@ -290,7 +290,7 @@ export default function SteamCardPage() {
                     value={config.bgColor}
                     onChange={(e) => updateConfig('bgColor', e.target.value)}
                     placeholder="#564ecb,#2bcc88"
-                    className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                    className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all"
                   />
                 ) : (
                   <input
@@ -298,7 +298,7 @@ export default function SteamCardPage() {
                     value={config.bgGameId}
                     onChange={(e) => updateConfig('bgGameId', e.target.value)}
                     placeholder="400（留空取时长最高的游戏）"
-                    className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                    className="w-full px-3 py-2 text-sm border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition-all"
                   />
                 )}
                 <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-1">
@@ -311,11 +311,11 @@ export default function SteamCardPage() {
                 <LabelWithHint label="图标" hint="选择在卡片中显示的图标元素" />
                 <div className="flex gap-3">
                   <label className="flex items-center gap-2 cursor-pointer px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
-                    <input type="checkbox" checked={config.badge} onChange={(e) => updateConfig('badge', e.target.checked)} className="w-3.5 h-3.5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                    <input type="checkbox" checked={config.badge} onChange={(e) => updateConfig('badge', e.target.checked)} className="w-3.5 h-3.5 rounded border-gray-300 text-black dark:text-white focus:ring-black dark:focus:ring-white" />
                     <span className="text-xs">徽章</span>
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-colors">
-                    <input type="checkbox" checked={config.group} onChange={(e) => updateConfig('group', e.target.checked)} className="w-3.5 h-3.5 rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                    <input type="checkbox" checked={config.group} onChange={(e) => updateConfig('group', e.target.checked)} className="w-3.5 h-3.5 rounded border-gray-300 text-black dark:text-white focus:ring-black dark:focus:ring-white" />
                     <span className="text-xs">群组</span>
                   </label>
                 </div>
@@ -335,7 +335,7 @@ export default function SteamCardPage() {
                         disabled={disabled}
                         className={`px-3 py-1.5 text-xs rounded-lg border transition-all ${
                           active
-                            ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                            ? 'border-black dark:border-white bg-gray-50 dark:bg-gray-900 text-black dark:text-white'
                             : disabled
                             ? 'border-gray-100 dark:border-gray-800 text-gray-300 dark:text-gray-600 cursor-not-allowed'
                             : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
@@ -351,7 +351,7 @@ export default function SteamCardPage() {
               {/* Generate Button */}
               <button
                 onClick={handleGenerate}
-                className="w-full py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg shadow-blue-500/20"
+                className="w-full py-3 bg-black dark:bg-white text-white dark:text-black rounded-xl font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-sm"
               >
                 生成卡片
               </button>
